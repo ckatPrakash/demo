@@ -38,7 +38,7 @@ pipeline {
 			sh 'terraform apply -input=false -auto-approve -lock=false tfplan'
 			}
 			if (env.USER_ACTION == 'destroy') {
-			sh 'terraform destroy -input=false -auto-approve -lock=false tfplan'
+			sh 'terraform destroy -auto-approve'
 			}	
 		}
 	}
