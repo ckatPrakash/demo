@@ -17,7 +17,7 @@ pipeline {
 	stage ('Terraform plan') {
 		steps {
 			sh 'terraform plan -out tfplan'
-			sh 'terraform show no-color tfplan > tfplan.txt'
+			sh 'terraform apply -input=false -auto-approve -lock=false tfplan'
 		}
 	}
 	stage ('Terraform apply') {
