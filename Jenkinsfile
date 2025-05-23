@@ -43,19 +43,5 @@ pipeline {
 		}
 	}
 	}	
-/*
-        stage("Run Terraform commands") {
-            steps {
-            withCredentials([usernamePassword(credentialsId: "jenkins_id", usernameVariable: 'AWS_access_key_id', passwordVariable: 'AWS__SECRET_ACCESS_KEY')]) {
-            sh '''
-             export AWS_region  
-             terraform init
-             terraform plan
-             terraform update
-            '''
-            }
-        } 
-    }
-*/
 }
 }
