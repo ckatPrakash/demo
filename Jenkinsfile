@@ -2,6 +2,7 @@ pipeline {
     agent any 
         environment {
             AWS_region = "us-east-1"
+	    profile = "default"
         }
     stages  {
 	stage('git checkout') {
