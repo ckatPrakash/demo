@@ -19,10 +19,18 @@ pipeline {
 			sh 'terraform plan -out tfplan'
 		}
 	}
-	stage ('Terraform apply') {
+	stage ('Terraform apply/destroy') {
 		steps {
+			script {
+			input message: "Do you want to apply the plan?" 
+			if (params.action == 'apply'){
 			sh 'terraform apply -input=false -auto-approve -lock=false tfplan'
+			}
+			if (!params.action == 'destroy') {
+			sh 'terraform destroy -input=false -auto-approve -lock=false tfplan'
+			}	
 		}
+	}
 	}	
 /*
         stage("Run Terraform commands") {
