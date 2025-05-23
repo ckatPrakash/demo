@@ -7,7 +7,7 @@ pipeline {
 	stage('git checkout') {
 		steps {
 		script {
-		git branch "main" 'url 'https://github.com/ckatPrakash/demo.git'
+		git branch "main" url 'https://github.com/ckatPrakash/demo.git'
 		}
 		}
 	}
