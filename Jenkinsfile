@@ -6,7 +6,9 @@ pipeline {
     stages  {
 	stage('git checkout') {
 		steps {
-			git branch main 'url 'https://github.com/ckatPrakash/demo.git'
+		script {
+		git branch "main" 'url 'https://github.com/ckatPrakash/demo.git'
+		}
 		}
 	}
         stage("Run Terraform commands") {
