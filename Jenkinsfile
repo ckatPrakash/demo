@@ -19,14 +19,25 @@ pipeline {
 			sh 'terraform plan -out tfplan'
 		}
 	}
+	 
+	stage('User Confirmation') {
+            steps {
+                script {
+                    def userChoice = input message: 'Choose Terraform action:', parameters: [
+                        choice(name: 'action', choices: ['apply', 'destroy'], description: 'Select action')
+                    ]
+                    env.USER_ACTION = userChoice
+                }
+            }
+        }
 	stage ('Terraform apply/destroy') {
 		steps {
 			script {
-			input message: "Do you want to apply the plan?" 
-			if (params.action == 'apply'){
+			input message: "Are you sure you want to '${env.USER_ACTION}'?" 
+			if (env.USER_ACTION == 'apply'){
 			sh 'terraform apply -input=false -auto-approve -lock=false tfplan'
 			}
-			if (!params.action == 'destroy') {
+			if (env.USER_ACTION == 'destroy') {
 			sh 'terraform destroy -input=false -auto-approve -lock=false tfplan'
 			}	
 		}
