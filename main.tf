@@ -32,7 +32,7 @@ resource "aws_instance" "web" {
 	instance_type = "t2.micro"
 	security_groups = [aws_security_group.web_sg.name]
 tags = {
-	Name= "jenkins_server"
+	Name= "application_server"
 	Environment = "dev"
 }
 }
