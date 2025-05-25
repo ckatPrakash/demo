@@ -45,7 +45,7 @@ resource "aws_db_instance" "mysql" {
 	engine_version = "8.0.27"
 	username = "admin"
 	password = "password123"
-	public_accessible = true
+	publicly_accessible = true
 	skip_final_snapshot = true
 	tags = {
 		Name = "myRDS"
