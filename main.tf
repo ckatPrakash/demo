@@ -40,7 +40,7 @@ tags = {
 resource "aws_db_instance" "mysql" {
 	allocated_storage = 20
 	storage_type = "gp2"
-	instance_class = "t2.micro"
+	instance_class = "db2.t2.micro"
 	identifier = "rdstf"
 	engine="mysql"
 	engine_version = "8.0.27"
