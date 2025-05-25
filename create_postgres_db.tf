@@ -91,7 +91,7 @@ skip_final_snapshot = true
 tags = {
 	Name = "Postgres_DB_Instance"
 }
-depends_on = [aws_instance.my_ec2]
+depends_on = [aws_instance.web]
 }
 
 output "db_address" {
