@@ -42,6 +42,7 @@ resource "aws_db_instance" "mysql" {
 	storage_type = "gp2"
 	instance_class = "t2.micro"
 	identifier = "rdstf"
+	engine="mysql"
 	engine_version = "8.0.27"
 	username = "admin"
 	password = "password123"
