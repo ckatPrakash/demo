@@ -36,3 +36,18 @@ tags = {
 	Environment = "dev"
 }
 }
+
+resource "aws_db_instance" "mysql" {
+	allocated_storage = var.dbstorage
+	storage_type = "gp2"
+	instance_class = "t2.micro"
+	identifier = "rdstf"
+	engine_version = "8.0.27"
+	username = "admin"
+	password = "password123"
+	public_accessible = true
+	skip_final_snapshot = true
+	tags = {
+		Name = "myRDS"
+	}
+}
