@@ -1,3 +1,4 @@
+/*
 provider "aws" {
    region = "us-east-1"
 }
@@ -102,3 +103,4 @@ depends_on = [aws_instance.web]
 output "db_address" {
   value = aws_db_instance.postgresql.address
 }
+*/
